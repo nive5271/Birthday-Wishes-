@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +16,12 @@ box-sizing:border-box;
 
 body{
 min-height:100vh;
-background:linear-gradient(135deg,#ffd6e7,#fff0f6);
+background:linear-gradient(135deg,#ffd1e3,#fff0f6);
+font-family:Georgia,serif;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family:"Georgia",serif;
-overflow:auto;
-text-align:center;
+overflow:hidden;
 }
 
 
@@ -30,18 +29,20 @@ text-align:center;
 
 .float{
 position:absolute;
-font-size:25px;
-animation:move 7s infinite;
+font-size:28px;
+animation:float 8s linear infinite;
 }
 
-@keyframes move{
+@keyframes float{
 0%{
-transform:translateY(100vh);
+transform:translateY(110vh);
 opacity:0;
 }
+
 50%{
 opacity:1;
 }
+
 100%{
 transform:translateY(-10vh);
 opacity:0;
@@ -49,44 +50,43 @@ opacity:0;
 }
 
 
-/* Main box */
-
 .container{
 width:90%;
-max-width:420px;
+max-width:430px;
+text-align:center;
 }
 
 
-/* Envelope */
+/* Letter cover */
 
-.envelope{
-background:#fff;
+.cover{
+background:white;
 padding:35px 20px;
 border-radius:25px;
-box-shadow:0 0 25px #ffb6d2;
+box-shadow:0 0 30px #ff9fc5;
 }
 
-.envelope h1{
+.cover h1{
 color:#d63384;
 font-size:30px;
 }
 
-.envelope p{
+.cover p{
 margin:20px;
 color:#555;
-font-size:18px;
 }
 
 
 button{
 background:#ff8fba;
-color:white;
 border:none;
-padding:12px 25px;
+padding:13px 25px;
 border-radius:25px;
+color:white;
 font-size:17px;
 cursor:pointer;
 }
+
 
 
 /* Letter */
@@ -96,9 +96,8 @@ display:none;
 background:#fffafc;
 padding:25px;
 border-radius:20px;
-box-shadow:0 0 25px #ffb6d2;
-color:#555;
-line-height:1.7;
+box-shadow:0 0 25px #ff9fc5;
+line-height:1.6;
 }
 
 
@@ -110,9 +109,8 @@ color:#d63384;
 .photo{
 height:150px;
 width:150px;
-margin:20px auto;
-background:#ffe4ef;
-border:8px solid white;
+margin:15px auto;
+background:#ffe1ee;
 border-radius:15px;
 display:flex;
 align-items:center;
@@ -121,56 +119,45 @@ color:#d63384;
 }
 
 
-/* Gift */
-
 .gift{
-font-size:80px;
+font-size:100px;
 cursor:pointer;
-margin:20px;
 }
 
 
-/* Cake */
+#count{
+display:none;
+font-size:35px;
+color:#d63384;
+}
+
 
 #cake{
 display:none;
-font-size:70px;
+font-size:80px;
 }
 
-
-/* Candle */
 
 #candle{
 display:none;
-font-size:45px;
-animation:burn .5s infinite alternate;
-}
-
-@keyframes burn{
-from{
-transform:scale(1);
-}
-to{
-transform:scale(1.1);
-}
+font-size:50px;
+animation:fire .5s infinite alternate;
 }
 
 
-#wish{
-display:none;
-color:#d63384;
-font-size:20px;
-font-weight:bold;
+@keyframes fire{
+from{transform:scale(1);}
+to{transform:scale(1.2);}
 }
 
 
 #final{
 display:none;
-color:#d63384;
-font-size:24px;
+font-size:25px;
 font-weight:bold;
-margin-top:15px;
+color:#0066ff;
 }
+
 
 </style>
 
@@ -179,24 +166,25 @@ margin-top:15px;
 <body>
 
 
-<div class="float" style="left:10%">💙</div>
-<div class="float" style="left:30%;animation-delay:2s">😽</div>
-<div class="float" style="left:55%;animation-delay:4s">🫀</div>
-<div class="float" style="left:80%;animation-delay:1s">✨</div>
-<div class="float" style="left:65%;animation-delay:3s">🎂</div>
+<div class="float" style="left:5%">💙</div>
+<div class="float" style="left:15%;animation-delay:1s">😽</div>
+<div class="float" style="left:30%;animation-delay:2s">🫀</div>
+<div class="float" style="left:45%;animation-delay:3s">✨</div>
+<div class="float" style="left:60%;animation-delay:1s">🎂</div>
+<div class="float" style="left:80%;animation-delay:4s">💗</div>
 
 
 <div class="container">
 
 
-<div class="envelope" id="open">
+<div class="cover" id="cover">
 
 <h1>
 💌 For My Papa 💙👩‍❤️‍👨
 </h1>
 
 <p>
-A little letter filled with love, memories and wishes 🌸✨
+A little surprise filled with love ✨
 </p>
 
 
@@ -204,10 +192,13 @@ A little letter filled with love, memories and wishes 🌸✨
 Open My Letter 💗
 </button>
 
+
 </div>
 
 
+
 <div class="letter" id="letter">
+
 
 <h2>
 Happy Birthday Papa 💙🎂
@@ -215,23 +206,27 @@ Happy Birthday Papa 💙🎂
 
 
 <div class="photo">
-Papa Photo 🖼️
+Add Papa Photo 🖼️
 </div>
 
 
 <p>
-
 Dear Papa 💙,<br><br>
 
 You are my happiness, my safe place and my biggest blessing. 🫂✨<br><br>
 
-Thank you for your love, care and all the beautiful memories you gave me. 💗<br><br>
+Thank you for every smile, every care and every beautiful memory. 💗<br><br>
 
-You are my forever favourite person. 🌎💙<br><br>
+You are my forever favourite person and my biggest support. 🌎💙<br><br>
 
-I wish you endless happiness, success and lots of smiles. 🎂✨
+May your life always be filled with happiness, success and endless smiles. 🎂✨<br><br>
+
+I love you forever 💙
 
 </p>
+
+
+<audio id="song" src="song.mp3"></audio>
 
 
 <div class="gift" onclick="openGift()">
@@ -239,9 +234,10 @@ I wish you endless happiness, success and lots of smiles. 🎂✨
 </div>
 
 
-<p>
-Tap the gift for surprise 💗
-  <div id="cake">
+<p>Open your surprise 💗</p>
+<div id="count"></div>
+
+<div id="cake">
 🎂
 </div>
 
@@ -249,16 +245,15 @@ Tap the gift for surprise 💗
 🕯️
 </div>
 
-<div id="wish">
-Make a wish Papa ✨💗
-</div>
 
 <div id="final">
-💌🌎😽<br>
-Happy Birthday My Hubby 💗<br><br>
 
-You are my favourite person forever 🫂💙<br>
-Love you always ✨
+🎉✨<br>
+Happiest Birthday My Lovee 💋💌<br><br>
+
+You are my forever happiness 💙<br>
+Love you always 🫂✨
+
 </div>
 
 
@@ -269,11 +264,24 @@ Love you always ✨
 
 <script>
 
+
 function openLetter(){
 
-document.getElementById("open").style.display="none";
+document.getElementById("cover").style.display="none";
 
 document.getElementById("letter").style.display="block";
+
+
+// Song play
+
+let music=document.getElementById("song");
+
+music.play().catch(()=>{
+
+console.log("Tap needed for music");
+
+});
+
 
 }
 
@@ -283,32 +291,69 @@ function openGift(){
 
 document.querySelector(".gift").style.display="none";
 
-document.getElementById("cake").style.display="block";
+let count=document.getElementById("count");
+
+count.style.display="block";
 
 
-setTimeout(function(){
+let num=3;
 
-document.getElementById("candle").style.display="block";
+count.innerHTML=num;
+
+
+let timer=setInterval(()=>{
+
+num--;
+
+if(num>0){
+
+count.innerHTML=num;
+
+}
+
+else{
+
+clearInterval(timer);
+
+count.style.display="none";
+
+showCake();
+
+}
+
 
 },1000);
 
 
-setTimeout(function(){
-
-document.getElementById("wish").style.display="block";
-
-},1500);
+}
 
 
-setTimeout(function(){
+
+function showCake(){
+
+
+document.getElementById("cake").style.display="block";
+
+
+setTimeout(()=>{
+
+document.getElementById("candle").style.display="block";
+
+},500);
+
+
+
+setTimeout(()=>{
+
 
 document.getElementById("candle").style.display="none";
 
-document.getElementById("wish").style.display="none";
 
 document.getElementById("final").style.display="block";
 
-},4000);
+
+},3500);
+
 
 
 }
@@ -320,4 +365,3 @@ document.getElementById("final").style.display="block";
 
 </body>
 </html>
-</p>
