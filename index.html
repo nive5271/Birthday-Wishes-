@@ -1,288 +1,182 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>For My Papa 💙👩‍❤️‍👨</title>  <style>  
-  
-*{  
-margin:0;  
-padding:0;  
-box-sizing:border-box;  
-}  
-  
-body{  
-min-height:100vh;  
-background:linear-gradient(135deg,#ffd6e8,#fff5fa);  
-display:flex;  
-justify-content:center;  
-align-items:center;  
-font-family:"Georgia",serif;  
-overflow-x:hidden;  
-overflow-y:auto;  
-}  
-  
-  
-/* one floating blue heart */  
-  
-.heart{  
-position:absolute;  
-font-size:24px;  
-color:#0066ff;  
-animation:float 12s linear infinite;  
-opacity:.7;  
-}  
-  
-@keyframes float{  
-from{  
-transform:translateY(110vh);  
-}  
-to{  
-transform:translateY(-20vh);  
-}  
-}  
-  
-  
-.container{  
-width:90%;  
-max-width:420px;  
-text-align:center;  
-}  
-  
-  
-.cover{  
-background:white;  
-padding:35px 20px;  
-border-radius:25px;  
-box-shadow:0 0 25px #ffb6d5;  
-}  
-  
-  
-.cover h1{  
-color:#0066cc;  
-font-size:30px;  
-}  
-  
-  
-.cover p{  
-margin:20px;  
-color:#777;  
-font-size:17px;  
-}  
-  
-  
-button{  
-background:#ff8fba;  
-color:white;  
-border:none;  
-padding:13px 25px;  
-border-radius:25px;  
-font-size:17px;  
-cursor:pointer;  
-}  
-  
-  
-.letter{  
-display:none;  
-background:#fffdf5;  
-padding:25px;  
-border-radius:15px;  
-box-shadow:0 0 25px #ffb6d5;  
-color:#555;  
-line-height:1.7;  
-}  
-  
-  
-.letter h2{  
-color:#0066cc;  
-margin-bottom:15px;  
-}  
-  
-  
-.gift{  
-font-size:120px;  
-cursor:pointer;  
-margin:20px;  
-}  
-  
-  
-#count{  
-display:none;  
-font-size:45px;  
-color:#0066cc;  
-}  
-  
-  
-#cake{  
-display:none;  
-font-size:100px;  
-}  
-  
-  
-#final{  
-display:none;  
-font-size:20px;  
-color:#0066cc;  
-font-weight:bold;  
-}  
-  
-  
-.paper{  
-position:fixed;  
-width:10px;  
-height:18px;  
-top:-20px;  
-animation:paper 3s linear forwards;  
-}  
-  
-  
-@keyframes paper{  
-to{  
-transform:translateY(110vh) rotate(360deg);  
-}  
-}  
-  
-</style>  </head>  <body>  <div class="heart" style="left:50%">💙</div>  <div class="container">  <div class="cover" id="cover">  <h1>  
-💌 For My Papa 💙👩‍❤️‍👨  
-</h1>  <p>  
-A little letter filled with love and beautiful wishes ✨  
-</p>  <audio id="song" src="Remo birthday bgm.mp3"></audio>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<button onclick="startLetter()">  
-🎵 Tap to Play BGM 💙  
-</button>  </div>  <div class="letter" id="letter">  <h2>  
-OYieeee Thangameyy 🫶🏻👀  
-</h2>  <p>  Happy Birthday to the most amazing boyfriend 💙✨<br><br>
+<title>For My Papa 💙</title>
 
-You make my world incredibly bright, and every moment spent by your side feels like a beautiful dream come true. 🌎💫<br><br>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-Your love, kindness, and warm smile are the greatest gifts in my life. 💗🫂<br><br>
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffd6e8,#fff5fa);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
 
-I pray this new year brings you endless success, happiness, good health, and everything your heart wishes for. ✨<br><br>
+.container{
+    text-align:center;
+    color:#333;
+}
 
-No matter what happens, I promise to stand by your side through everything, always. 💙🤍<br><br>
+h1{
+    font-size:38px;
+    color:#1e6cff;
+    margin-bottom:25px;
+}
 
-I am so grateful to the universe for bringing you into my life. You are my favourite person, my happiness, and my forever. 💙🌎<br><br>
+p{
+    font-size:20px;
+    margin-bottom:30px;
+}
 
-May all your biggest dreams come true today and forever. ✨<br><br>
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:#1e6cff;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 5px 15px #999;
+}
 
-I love you so much, my lovee 💋💌
+.heart{
+    position:absolute;
+    font-size:35px;
+    color:#1e6cff;
+    animation:float 4s infinite ease-in-out;
+}
 
-</p>  <div class="gift" onclick="openSurprise()">  
-🎁  
-</div>  <p>  
-Tap the gift for surprise 💗  
-</p>  <div id="surprisePage">  <div id="count"></div>  <div id="cake">  
-🎂🕯️  
-</div>  <div id="final">  
-  🎉✨🎉<br><br>  
-  🎉✨🎉<br><br>  Turing 22 For Myy Bae👶🏻🌈🌎
+@keyframes float{
+    0%{
+        transform:translateY(40px);
+    }
+    50%{
+        transform:translateY(-40px);
+    }
+    100%{
+        transform:translateY(40px);
+    }
+}
 
-</div>  </div>  <p>  
-You are my favourite person forever 🫂✨  
-</p>  </div>  </div>  <script>  
-  
-  
-function startLetter(){  
-  
-let song=document.getElementById("song");  
-  
-song.play();  
-  
-  
-document.getElementById("cover").style.display="none";  
-  
-document.getElementById("letter").style.display="block";  
-  
-}  
-  
-  
-  
-function openGift(){  
-  
-document.querySelector(".gift").style.display="none";  
-  
-  
-let count=document.getElementById("count");  
-  
-count.style.display="block";  
-  
-  
-let num=3;  
-  
-  
-let timer=setInterval(()=>{  
-  
-  
-count.innerHTML=num;  
-  
-num--;  
-  
-  
-if(num<0){  
-  
-clearInterval(timer);  
-  
-count.style.display="none";  
-  
-party();  
-  
-}  
-  
-},1000);  
-  
-  
-}  
-  
-  
-  
-function party(){  
-  
-  
-/* colour paper blast */  
-  
-for(let i=0;i<25;i++){  
-  
-  
-let p=document.createElement("div");  
-  
-p.className="paper";  
-  
-p.innerHTML="🎉";  
-  
-  
-p.style.left=Math.random()*100+"%";  
-  
-p.style.animationDelay=Math.random()+"s";  
-  
-  
-document.body.appendChild(p);  
-  
-  
-}  
-  
-  
-  
-setTimeout(()=>{  
-  
-  
-document.getElementById("cake").style.display="block";  
-  
-  
-},1500);  
-  
-  
-  
-setTimeout(()=>{  
-  
-  
-document.getElementById("final").style.display="block";  
-  
-  
-},3000);  
-  
-  
-  
-}  
-  
-  
-</script>  </body>  
-</html>  
+</style>
+</head>
+
+<body>
+
+<div class="heart">💙</div>
+
+<div class="container">
+
+<h1>For My Papa 💙👩‍❤️‍👨</h1>
+
+<p>A little surprise is waiting for you 🥹✨</p>
+
+<button onclick="startSurprise()">
+🎵 Tap to Play
+</button>
+
+</div>
+
+
+<script>
+
+function startSurprise(){
+    alert("Surprise starting soon 💙✨");
+}
+
+</script>
+
+</body>
+</html>
+<body>
+
+<audio id="song" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="heart">💙</div>
+
+
+<div class="container" id="home">
+
+<h1>For My Papa 💙👩‍❤️‍👨</h1>
+
+<p>A little surprise is waiting for you 🥹✨</p>
+
+<button onclick="startSurprise()">
+🎵 Tap to Play
+</button>
+
+</div>
+
+
+
+<div class="container" id="birthday" style="display:none;">
+
+<h1>Happy Birthday My Baby 🎂💙</h1>
+
+<p>
+You are my favourite person forever 🧿🥹
+</p>
+
+<button onclick="nextPage()">
+Open Surprise 🎁
+</button>
+
+</div>
+
+
+
+<script>
+
+function startSurprise(){
+
+let music = document.getElementById("song");
+music.play();
+
+document.getElementById("home").style.display="none";
+document.getElementById("birthday").style.display="block";
+
+}
+
+
+function nextPage(){
+
+alert("Next surprise coming 💙✨");
+
+}
+
+</script>
+<div class="container" id="cakePage" style="display:none;">
+
+<h1>MY BABY TURNS INTO 22 YEARS OLD 🧿🥹</h1>
+
+<div class="cake">
+    🎂
+</div>
+
+<div class="candles">
+    🕯️ 🕯️ 🕯️
+</div>
+
+<p>
+Make a wish my baby 💙✨
+</p>
+
+<button onclick="blowCandle()">
+Blow Candles 🥳
+</button>
+
+</div>
