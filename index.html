@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,88 +16,81 @@ box-sizing:border-box;
 
 body{
 min-height:100vh;
-background:linear-gradient(135deg,#ffd1e3,#fff0f6);
-font-family:Georgia,serif;
+background:linear-gradient(135deg,#ffd6e8,#fff5fa);
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:auto;
+font-family:"Georgia",serif;
+overflow:hidden;
 }
 
 
-/* Floating emojis */
+/* Soft floating emojis */
 
 .float{
 position:absolute;
-font-size:28px;
-animation:float 8s linear infinite;
+font-size:22px;
+opacity:.7;
+animation:float 12s linear infinite;
 }
 
 @keyframes float{
 0%{
 transform:translateY(110vh);
-opacity:0;
-}
-
-50%{
-opacity:1;
 }
 
 100%{
-transform:translateY(-10vh);
-opacity:0;
+transform:translateY(-20vh);
 }
 }
 
 
 .container{
 width:90%;
-max-width:430px;
+max-width:420px;
 text-align:center;
 }
 
-
-/* Letter cover */
 
 .cover{
 background:white;
 padding:35px 20px;
 border-radius:25px;
-box-shadow:0 0 30px #ff9fc5;
+box-shadow:0 0 20px #ffb6d5;
 }
+
 
 .cover h1{
 color:#d63384;
 font-size:30px;
 }
 
+
 .cover p{
 margin:20px;
-color:#555;
+color:#666;
+font-size:17px;
 }
 
 
 button{
 background:#ff8fba;
-border:none;
-padding:13px 25px;
-border-radius:25px;
 color:white;
+border:none;
+padding:12px 25px;
+border-radius:25px;
 font-size:17px;
-cursor:pointer;
 }
 
 
-
-/* Letter */
-
 .letter{
 display:none;
-background:#fffafc;
+background:#fffdf8;
 padding:25px;
 border-radius:20px;
-box-shadow:0 0 25px #ff9fc5;
-line-height:1.6;
+box-shadow:0 0 20px #ffb6d5;
+line-height:1.7;
+color:#555;
 }
 
 
@@ -109,13 +102,18 @@ color:#d63384;
 .photo{
 height:150px;
 width:150px;
-margin:15px auto;
-background:#ffe1ee;
+margin:20px auto;
 border-radius:15px;
+background:#ffe5f0;
 display:flex;
 align-items:center;
 justify-content:center;
 color:#d63384;
+}
+
+
+.song{
+margin:15px;
 }
 
 
@@ -132,33 +130,6 @@ color:#d63384;
 }
 
 
-#cake{
-display:none;
-font-size:80px;
-}
-
-
-#candle{
-display:none;
-font-size:50px;
-animation:fire .5s infinite alternate;
-}
-
-
-@keyframes fire{
-from{transform:scale(1);}
-to{transform:scale(1.2);}
-}
-
-
-#final{
-display:none;
-font-size:25px;
-font-weight:bold;
-color:#0066ff;
-}
-
-
 </style>
 
 </head>
@@ -166,12 +137,10 @@ color:#0066ff;
 <body>
 
 
-<div class="float" style="left:5%">💙</div>
-<div class="float" style="left:15%;animation-delay:1s">😽</div>
-<div class="float" style="left:30%;animation-delay:2s">🫀</div>
-<div class="float" style="left:45%;animation-delay:3s">✨</div>
-<div class="float" style="left:60%;animation-delay:1s">🎂</div>
-<div class="float" style="left:80%;animation-delay:4s">💗</div>
+<div class="float" style="left:10%">💙</div>
+<div class="float" style="left:30%;animation-delay:3s">😽</div>
+<div class="float" style="left:55%;animation-delay:6s">✨</div>
+<div class="float" style="left:75%;animation-delay:2s">🎂</div>
 
 
 <div class="container">
@@ -184,24 +153,20 @@ color:#0066ff;
 </h1>
 
 <p>
-A little surprise filled with love ✨
+A little love letter made only for you ✨
 </p>
-
 
 <button onclick="openLetter()">
 Open My Letter 💗
 </button>
 
-
 </div>
-
 
 
 <div class="letter" id="letter">
 
-
 <h2>
-Happy Birthday Papa 💙🎂
+Happy Birthday My Love 💙🎂
 </h2>
 
 
@@ -210,36 +175,45 @@ Add Papa Photo 🖼️
 </div>
 
 
+<audio id="song" src="song.mp3"></audio>
+
+
+<div class="song">
+🎵 Our Special Song
+</div>
+
+
 <p>
-Dear Papa 💙,<br><br>
 
-You are my happiness, my safe place and my biggest blessing. 🫂✨<br><br>
+Happy Birthday to the most amazing boyfriend 💙<br><br>
 
-Thank you for every smile, every care and every beautiful memory. 💗<br><br>
+You make my world incredibly bright, and every moment spent by your side feels like a beautiful dream come true. ✨<br><br>
 
-You are my forever favourite person and my biggest support. 🌎💙<br><br>
+Your love, kindness, and warm smile are the greatest gifts in my life. 💗<br><br>
 
-May your life always be filled with happiness, success and endless smiles. 🎂✨<br><br>
+I pray this new year brings you endless success, happiness and good health. 🌎<br><br>
 
-I love you forever 💙
+No matter what happens, I promise to stand by your side through everything, always. 🫂<br><br>
+
+You are my happiness, my favourite person and my forever. 💙
 
 </p>
-
-
-<audio id="song" src="song.mp3"></audio>
 
 
 <div class="gift" onclick="openGift()">
 🎁
 </div>
 
+<p>
+Open your surprise 💗
+  </p>
+  <div id="count"></div>
 
-<p>Open your surprise 💗</p>
-<div id="count"></div>
 
 <div id="cake">
 🎂
 </div>
+
 
 <div id="candle">
 🕯️
@@ -248,11 +222,16 @@ I love you forever 💙
 
 <div id="final">
 
-🎉✨<br>
-Happiest Birthday My Lovee 💋💌<br><br>
+🎉✨🎉<br><br>
 
-You are my forever happiness 💙<br>
-Love you always 🫂✨
+<span>
+Happiest Birthday My Lovee 💋💌
+</span>
+
+<br><br>
+
+Forever my favourite person 💙<br>
+My today, my tomorrow and my always ✨🫂
 
 </div>
 
@@ -272,16 +251,15 @@ document.getElementById("cover").style.display="none";
 document.getElementById("letter").style.display="block";
 
 
-// Song play
+// song play
 
-let music=document.getElementById("song");
+let song=document.getElementById("song");
 
-music.play().catch(()=>{
+song.play().catch(()=>{
 
-console.log("Tap needed for music");
+console.log("Music needs tap");
 
 });
-
 
 }
 
@@ -296,22 +274,17 @@ let count=document.getElementById("count");
 count.style.display="block";
 
 
-let num=3;
-
-count.innerHTML=num;
+let number=3;
 
 
-let timer=setInterval(()=>{
+let timer=setInterval(function(){
 
-num--;
+count.innerHTML=number;
 
-if(num>0){
+number--;
 
-count.innerHTML=num;
 
-}
-
-else{
+if(number<0){
 
 clearInterval(timer);
 
@@ -335,7 +308,7 @@ function showCake(){
 document.getElementById("cake").style.display="block";
 
 
-setTimeout(()=>{
+setTimeout(function(){
 
 document.getElementById("candle").style.display="block";
 
@@ -343,10 +316,22 @@ document.getElementById("candle").style.display="block";
 
 
 
-setTimeout(()=>{
-
+setTimeout(function(){
 
 document.getElementById("candle").style.display="none";
+
+
+// small pop effect
+
+document.body.style.transform="scale(1.02)";
+
+
+setTimeout(function(){
+
+document.body.style.transform="scale(1)";
+
+},200);
+
 
 
 document.getElementById("final").style.display="block";
@@ -355,9 +340,7 @@ document.getElementById("final").style.display="block";
 },3500);
 
 
-
 }
-
 
 
 </script>
