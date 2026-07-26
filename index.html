@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Papa 💙👼🏻</title>
+
+<title>Happy Birthday Papa 💙</title>
 
 <style>
 *{
@@ -13,94 +14,234 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#6dd5fa,#2980b9);
 height:100vh;
-overflow:hidden;
+background:linear-gradient(135deg,#eaf6ff,#b8dcff);
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
+font-family:"Georgia",serif;
+overflow:hidden;
+}
+
+/* floating hearts */
+.heart{
+position:absolute;
+color:#0077ff;
+font-size:25px;
+animation:float 6s infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+}
+
+
+.container{
+width:90%;
+max-width:420px;
 text-align:center;
 }
 
-h1{
-color:white;
-font-size:42px;
-text-shadow:2px 2px 10px black;
-animation:zoom 2s infinite alternate;
+
+/* Envelope */
+.envelope{
+background:#fff;
+padding:35px 20px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,0,0,.2);
 }
 
-p{
+.envelope h1{
+color:#0066cc;
+font-size:30px;
+}
+
+.envelope p{
+margin:15px;
+font-size:18px;
+color:#555;
+}
+
+button{
+background:#0066cc;
 color:white;
+border:none;
+padding:12px 25px;
+border-radius:25px;
+font-size:17px;
+cursor:pointer;
+}
+
+
+/* Letter */
+.letter{
+display:none;
+background:#fffdf5;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,0,0,.2);
+color:#333;
+line-height:1.6;
+}
+
+.letter h2{
+color:#0066cc;
+margin-bottom:15px;
+}
+
+.photo{
+width:150px;
+height:150px;
+border-radius:10px;
+border:8px solid white;
+box-shadow:0 0 15px #aaa;
+margin:15px auto;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#dceeff;
+color:#0066cc;
+}
+
+.gift{
+font-size:80px;
+cursor:pointer;
+margin:15px;
+}
+
+#surprise{
+display:none;
 font-size:22px;
+color:#0066cc;
+font-weight:bold;
+}
+
+.music{
 margin-top:15px;
 }
 
-#gift{
-font-size:110px;
-cursor:pointer;
-margin-top:30px;
-transition:.5s;
-}
-
-#gift:hover{
-transform:scale(1.2) rotate(10deg);
-}
-
-#message{
-display:none;
-background:white;
-padding:20px;
-width:90%;
-max-width:360px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.3);
-color:#0066cc;
-margin-top:20px;
-}
-
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.08);}
-}
 </style>
 </head>
 
+
 <body>
 
-<h1>🎉 Happy Birthday Papa 💙👼🏻 🎉</h1>
 
-<p>Tap the Gift 🎁</p>
+<div class="heart">💙</div>
+<div class="heart" style="left:20%;animation-delay:2s">✨</div>
+<div class="heart" style="left:70%;animation-delay:4s">💙</div>
 
-<div id="gift">🎁</div>
-  <div id="message">
-<h2>💖 A Special Surprise For My Papa 💙👼🏻</h2>
+
+<div class="container">
+
+
+<div class="envelope" id="open">
+
+<h1>💌 For My Papa 💙</h1>
 
 <p>
-Happy Birthday Papa 💙👼🏻 ❤️<br><br>
-
-You are my happiness, my peace, and my biggest blessing. 🥹💙<br><br>
-
-Every moment with you is the most beautiful memory of my life. Thank you for always being there for me. ❤️✨<br><br>
-
-May this birthday bring you endless happiness, success, good health, and everything you dream of. 🎂🎉<br><br>
-
-I Love You Forever Papa... 💙👼🏻🫂
+A little letter filled with love, memories and wishes ✨
 </p>
 
-<button onclick="openGift()"
-style="padding:12px 25px;border:none;border-radius:10px;background:#2196F3;color:white;font-size:18px;cursor:pointer;">
-Open My Surprise 💝
+<button onclick="openLetter()">
+Open My Letter 💙
 </button>
 
 </div>
 
+
+
+<div class="letter" id="letter">
+
+<h2>Happy Birthday Papa 💙🎂</h2>
+
+
+<div class="photo">
+Add Papa Photo 🖼️
+</div>
+
+
+<p>
+
+Dear Papa 💙,<br><br>
+
+You are the most precious blessing in my life. 
+Your love, care and support make my world more beautiful. 🫂✨<br><br>
+
+Thank you for every smile, every sacrifice and every moment you gave me. 
+You are my strength and my forever hero. 💙👑<br><br>
+
+On your special day, I wish you endless happiness, good health, success and lots of beautiful memories. 🎉<br><br>
+
+I love you forever Papa... 💙🦋
+
+</p>
+
+
+<div class="gift" onclick="giftOpen()">
+🎁
+</div>
+
+
+<div id="surprise">
+
+💙 Surprise For You Papa 💙<br>
+You are my favourite person forever 🫂✨
+
+</div>
+
+
+<div class="music">
+
+<button onclick="playMusic()">
+🎵 Play Song
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
 <script>
-function openGift(){
-document.getElementById("gift").style.display="none";
-document.getElementById("message").style.display="block";
+
+function openLetter(){
+
+document.getElementById("open").style.display="none";
+
+document.getElementById("letter").style.display="block";
+
 }
+
+
+function giftOpen(){
+
+document.getElementById("surprise").style.display="block";
+
+}
+
+
+function playMusic(){
+
+alert("Add your favourite song here 🎵💙");
+
+}
+
 </script>
+
+
 </body>
 </html>
