@@ -25,21 +25,21 @@ overflow:hidden;
 }
 
 
-/* Soft floating emojis */
+/* one floating blue heart */
 
-.float{
+.heart{
 position:absolute;
-font-size:22px;
-opacity:.7;
+font-size:24px;
+color:#0066ff;
 animation:float 12s linear infinite;
+opacity:.7;
 }
 
 @keyframes float{
-0%{
+from{
 transform:translateY(110vh);
 }
-
-100%{
+to{
 transform:translateY(-20vh);
 }
 }
@@ -56,19 +56,19 @@ text-align:center;
 background:white;
 padding:35px 20px;
 border-radius:25px;
-box-shadow:0 0 20px #ffb6d5;
+box-shadow:0 0 25px #ffb6d5;
 }
 
 
 .cover h1{
-color:#d63384;
+color:#0066cc;
 font-size:30px;
 }
 
 
 .cover p{
 margin:20px;
-color:#666;
+color:#777;
 font-size:17px;
 }
 
@@ -77,67 +77,81 @@ button{
 background:#ff8fba;
 color:white;
 border:none;
-padding:12px 25px;
+padding:13px 25px;
 border-radius:25px;
 font-size:17px;
+cursor:pointer;
 }
 
 
 .letter{
 display:none;
-background:#fffdf8;
+background:#fffdf5;
 padding:25px;
-border-radius:20px;
-box-shadow:0 0 20px #ffb6d5;
-line-height:1.7;
+border-radius:15px;
+box-shadow:0 0 25px #ffb6d5;
 color:#555;
+line-height:1.7;
 }
 
 
 .letter h2{
-color:#d63384;
-}
-
-
-.photo{
-height:150px;
-width:150px;
-margin:20px auto;
-border-radius:15px;
-background:#ffe5f0;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#d63384;
-}
-
-
-.song{
-margin:15px;
+color:#0066cc;
+margin-bottom:15px;
 }
 
 
 .gift{
-font-size:100px;
+font-size:120px;
 cursor:pointer;
+margin:20px;
 }
 
 
 #count{
 display:none;
-font-size:35px;
-color:#d63384;
+font-size:45px;
+color:#0066cc;
 }
 
 
-</style>
+#cake{
+display:none;
+font-size:100px;
+}
 
+
+#final{
+display:none;
+font-size:20px;
+color:#0066cc;
+font-weight:bold;
+}
+
+
+.paper{
+position:fixed;
+width:10px;
+height:18px;
+top:-20px;
+animation:paper 3s linear forwards;
+}
+
+
+@keyframes paper{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+</style>
 </head>
+
 
 <body>
 
 
-<div class="float" style="left:10%">💙</div>
+<div class="heart" style="left:50%">💙</div>
 
 
 <div class="container">
@@ -150,44 +164,47 @@ color:#d63384;
 </h1>
 
 <p>
-A little love letter made only for you ✨
+A little letter filled with love and beautiful wishes ✨
 </p>
 
-<button onclick="openLetter()">
-Open My Letter 💗
+
+<audio id="song" src="Remo birthday bgm.mp3"></audio>
+
+
+<button onclick="startLetter()">
+🎵 Tap to Play BGM 💙
 </button>
+
 
 </div>
 
 
+
 <div class="letter" id="letter">
+
 
 <h2>
 Happy Birthday My Love 💙🎂
 </h2>
 
 
-<audio id="song" src="song.mp3"></audio>
-
-
-<div class="song">
-🎵 Our Special Song
-</div>
-
-
 <p>
 
-Happy Birthday to the most amazing boyfriend 💙<br><br>
+Happy Birthday to the most amazing boyfriend 💙✨<br><br>
 
-You make my world incredibly bright, and every moment spent by your side feels like a beautiful dream come true. ✨<br><br>
+You make my world incredibly bright, and every moment spent by your side feels like a beautiful dream come true. 🌎💫<br><br>
 
-Your love, kindness, and warm smile are the greatest gifts in my life. 💗<br><br>
+Your love, kindness, and warm smile are the greatest gifts in my life. 💗🫂<br><br>
 
-I pray this new year brings you endless success, happiness and good health. 🌎<br><br>
+I pray this new year brings you endless success, happiness, good health, and everything your heart wishes for. ✨<br><br>
 
-No matter what happens, I promise to stand by your side through everything, always. 🫂<br><br>
+No matter what happens, I promise to stand by your side through everything, always. 💙🤍<br><br>
 
-You are my happiness, my favourite person and my forever. 💙
+I am so grateful to the universe for bringing you into my life. You are my favourite person, my happiness, and my forever. 💙🌎<br><br>
+
+May all your biggest dreams come true today and forever. ✨<br><br>
+
+I love you so much, my lovee 💋💌
 
 </p>
 
@@ -197,32 +214,24 @@ You are my happiness, my favourite person and my forever. 💙
 </div>
 
 <p>
-Open your surprise 💗
-  </p>
-  <div id="count"></div>
+Tap the gift for surprise 💗
+</p>
 
+
+<div id="count"></div>
 
 <div id="cake">
-🎂
+🎂🕯️
 </div>
+  <div id="final">
 
+🎉✨🎉<br><br>
 
-<div id="candle">
-🕯️
-</div>
-
-
-<div id="final">
-pop up blast<br><br>
-
-<span>
-Happiest Birthday My Lovee 💋💌
-</span>
+💙 Happiest Birthday My Lovee 💋💌 💙
 
 <br><br>
 
-Forever my favourite person 💙<br>
-My today, my tomorrow and my always ✨🫂
+You are my favourite person forever 🫂✨
 
 </div>
 
@@ -230,27 +239,22 @@ My today, my tomorrow and my always ✨🫂
 </div>
 
 </div>
+
 
 
 <script>
 
 
-function openLetter(){
+function startLetter(){
+
+let song=document.getElementById("song");
+
+song.play();
+
 
 document.getElementById("cover").style.display="none";
 
 document.getElementById("letter").style.display="block";
-
-
-// song play
-
-let song=document.getElementById("song");
-
-song.play().catch(()=>{
-
-console.log("Music needs tap");
-
-});
 
 }
 
@@ -260,31 +264,32 @@ function openGift(){
 
 document.querySelector(".gift").style.display="none";
 
+
 let count=document.getElementById("count");
 
 count.style.display="block";
 
 
-let number=3;
+let num=3;
 
 
-let timer=setInterval(function(){
-
-count.innerHTML=number;
-
-number--;
+let timer=setInterval(()=>{
 
 
-if(number<0){
+count.innerHTML=num;
+
+num--;
+
+
+if(num<0){
 
 clearInterval(timer);
 
 count.style.display="none";
 
-showCake();
+party();
 
 }
-
 
 },1000);
 
@@ -293,42 +298,51 @@ showCake();
 
 
 
-function showCake(){
+function party(){
+
+
+/* colour paper blast */
+
+for(let i=0;i<25;i++){
+
+
+let p=document.createElement("div");
+
+p.className="paper";
+
+p.innerHTML="🎉";
+
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDelay=Math.random()+"s";
+
+
+document.body.appendChild(p);
+
+
+}
+
+
+
+setTimeout(()=>{
 
 
 document.getElementById("cake").style.display="block";
 
 
-setTimeout(function(){
-
-document.getElementById("candle").style.display="block";
-
-},500);
+},1500);
 
 
 
-setTimeout(function(){
-
-document.getElementById("candle").style.display="none";
-
-
-// small pop effect
-
-document.body.style.transform="scale(1.02)";
-
-
-setTimeout(function(){
-
-document.body.style.transform="scale(1)";
-
-},200);
-
+setTimeout(()=>{
 
 
 document.getElementById("final").style.display="block";
 
 
-},3500);
+},3000);
+
 
 
 }
