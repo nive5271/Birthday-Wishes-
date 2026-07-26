@@ -1,207 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>For My Papa 💙👩‍❤️‍👨</title>  <style>  
+  
+*{  
+margin:0;  
+padding:0;  
+box-sizing:border-box;  
+}  
+  
+body{  
+min-height:100vh;  
+background:linear-gradient(135deg,#ffd6e8,#fff5fa);  
+display:flex;  
+justify-content:center;  
+align-items:center;  
+font-family:"Georgia",serif;  
+overflow-x:hidden;  
+overflow-y:auto;  
+}  
+  
+  
+/* one floating blue heart */  
+  
+.heart{  
+position:absolute;  
+font-size:24px;  
+color:#0066ff;  
+animation:float 12s linear infinite;  
+opacity:.7;  
+}  
+  
+@keyframes float{  
+from{  
+transform:translateY(110vh);  
+}  
+to{  
+transform:translateY(-20vh);  
+}  
+}  
+  
+  
+.container{  
+width:90%;  
+max-width:420px;  
+text-align:center;  
+}  
+  
+  
+.cover{  
+background:white;  
+padding:35px 20px;  
+border-radius:25px;  
+box-shadow:0 0 25px #ffb6d5;  
+}  
+  
+  
+.cover h1{  
+color:#0066cc;  
+font-size:30px;  
+}  
+  
+  
+.cover p{  
+margin:20px;  
+color:#777;  
+font-size:17px;  
+}  
+  
+  
+button{  
+background:#ff8fba;  
+color:white;  
+border:none;  
+padding:13px 25px;  
+border-radius:25px;  
+font-size:17px;  
+cursor:pointer;  
+}  
+  
+  
+.letter{  
+display:none;  
+background:#fffdf5;  
+padding:25px;  
+border-radius:15px;  
+box-shadow:0 0 25px #ffb6d5;  
+color:#555;  
+line-height:1.7;  
+}  
+  
+  
+.letter h2{  
+color:#0066cc;  
+margin-bottom:15px;  
+}  
+  
+  
+.gift{  
+font-size:120px;  
+cursor:pointer;  
+margin:20px;  
+}  
+  
+  
+#count{  
+display:none;  
+font-size:45px;  
+color:#0066cc;  
+}  
+  
+  
+#cake{  
+display:none;  
+font-size:100px;  
+}  
+  
+  
+#final{  
+display:none;  
+font-size:20px;  
+color:#0066cc;  
+font-weight:bold;  
+}  
+  
+  
+.paper{  
+position:fixed;  
+width:10px;  
+height:18px;  
+top:-20px;  
+animation:paper 3s linear forwards;  
+}  
+  
+  
+@keyframes paper{  
+to{  
+transform:translateY(110vh) rotate(360deg);  
+}  
+}  
+  
+</style>  </head>  <body>  <div class="heart" style="left:50%">💙</div>  <div class="container">  <div class="cover" id="cover">  <h1>  
+💌 For My Papa 💙👩‍❤️‍👨  
+</h1>  <p>  
+A little letter filled with love and beautiful wishes ✨  
+</p>  <audio id="song" src="Remo birthday bgm.mp3"></audio>
 
-<title>For My Papa 💙👩‍❤️‍👨</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-min-height:100vh;
-background:linear-gradient(135deg,#ffd6e8,#fff5fa);
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:"Georgia",serif;
-overflow-x:hidden;
-overflow-y:auto;
-}
-
-
-/* one floating blue heart */
-
-.heart{
-position:absolute;
-font-size:24px;
-color:#0066ff;
-animation:float 12s linear infinite;
-opacity:.7;
-}
-
-@keyframes float{
-from{
-transform:translateY(110vh);
-}
-to{
-transform:translateY(-20vh);
-}
-}
-
-
-.container{
-width:90%;
-max-width:420px;
-text-align:center;
-}
-
-
-.cover{
-background:white;
-padding:35px 20px;
-border-radius:25px;
-box-shadow:0 0 25px #ffb6d5;
-}
-
-
-.cover h1{
-color:#0066cc;
-font-size:30px;
-}
-
-
-.cover p{
-margin:20px;
-color:#777;
-font-size:17px;
-}
-
-
-button{
-background:#ff8fba;
-color:white;
-border:none;
-padding:13px 25px;
-border-radius:25px;
-font-size:17px;
-cursor:pointer;
-}
-
-
-.letter{
-display:none;
-background:#fffdf5;
-padding:25px;
-border-radius:15px;
-box-shadow:0 0 25px #ffb6d5;
-color:#555;
-line-height:1.7;
-}
-
-
-.letter h2{
-color:#0066cc;
-margin-bottom:15px;
-}
-
-
-.gift{
-font-size:120px;
-cursor:pointer;
-margin:20px;
-}
-
-
-#count{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100vh;
-background:#ffd6e8;
-z-index:10;
-justify-content:center;
-align-items:center;
-font-size:100px;
-color:#0066cc;
-font-weight:bold;
-}
-
-
-#cake{
-display:none;
-font-size:100px;
-}
-
-
-#final{
-display:none;
-font-size:20px;
-color:#0066cc;
-font-weight:bold;
-}
-
-
-.paper{
-position:fixed;
-width:10px;
-height:18px;
-top:-20px;
-animation:paper 3s linear forwards;
-}
-
-
-@keyframes paper{
-to{
-transform:translateY(110vh) rotate(360deg);
-}
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<div class="heart" style="left:50%">💙</div>
-
-
-<div class="container">
-
-
-<div class="cover" id="cover">
-
-<h1>
-💌 For My Papa 💙👩‍❤️‍👨
-</h1>
-
-<p>
-A little letter filled with love and beautiful wishes ✨
-</p>
-
-
-<audio id="song" src="Remo birthday bgm.mp3"></audio>
-
-
-<button onclick="startLetter()">
-🎵 Tap to Play BGM 💙
-</button>
-
-
-</div>
-
-
-
-<div class="letter" id="letter">
-
-
-<h2>
-OYieeee Thangameyy 🫶🏻👀
-</h2>
-
-
-<p>
-
-Happy Birthday to the most amazing boyfriend 💙✨<br><br>
+<button onclick="startLetter()">  
+🎵 Tap to Play BGM 💙  
+</button>  </div>  <div class="letter" id="letter">  <h2>  
+OYieeee Thangameyy 🫶🏻👀  
+</h2>  <p>  Happy Birthday to the most amazing boyfriend 💙✨<br><br>
 
 You make my world incredibly bright, and every moment spent by your side feels like a beautiful dream come true. 🌎💫<br><br>
 
@@ -217,188 +166,123 @@ May all your biggest dreams come true today and forever. ✨<br><br>
 
 I love you so much, my lovee 💋💌
 
-</p>
+</p>  <div class="gift" onclick="openSurprise()">  
+🎁  
+</div>  <p>  
+Tap the gift for surprise 💗  
+</p>  <div id="surprisePage">  <div id="count"></div>  <div id="cake">  
+🎂🕯️  
+</div>  <div id="final">  
+  🎉✨🎉<br><br>  
+  🎉✨🎉<br><br>  Turing 22 For Myy Bae👶🏻🌈🌎
 
-
-<div class="gift" onclick="openGift()">
-🎁
-</div>
-
-<p>
-Tap the gift for surprise 💗
-</p>
-
-<div id="surprisePage">
-
-<div id="count"></div>
-
-<div id="cake">
-🎂🕯️
-</div>
-
-<div id="final">
-  🎉✨🎉<br><br>
-  🎉✨🎉<br><br>
+</div>  </div>  <p>  
+You are my favourite person forever 🫂✨  
+</p>  </div>  </div>  <script>  
   
-Turing 22 For Myy Bae👶🏻🌈🌎
-</div>
-
-</div>
-
-
-<p>
-You are my favourite person forever 🫂✨
-</p>
-
-
-
-
-
-</div>
-
-</div>
-
-
-
-<script>
-
-
-function startLetter(){
-
-let song=document.getElementById("song");
-
-song.play();
-
-
-document.getElementById("cover").style.display="none";
-
-document.getElementById("letter").style.display="block";
-
-}
-
-
-
-function openGift(){
-
-document.querySelector(".gift").style.display="none";
-
-let count=document.getElementById("count");
-
-count.style.display="flex";
-
-
-let num=3;
-
-
-let timer=setInterval(()=>{
-
-
-count.innerHTML=num;
-
-num--;
-
-
-if(num<0){
-
-clearInterval(timer);
-
-count.style.display="none";
-
-party();
-
-}
-
-},1000);
-
-
-}
-
-
-let count=document.getElementById("count");
-
-count.style.display="block";
-
-
-let num=3;
-
-
-let timer=setInterval(()=>{
-
-
-count.innerHTML=num;
-
-num--;
-
-
-if(num<0){
-
-clearInterval(timer);
-
-count.style.display="none";
-
-party();
-
-}
-
-},1000);
-
-
-}
-
-
-
-function party(){
-
-
-/* colour paper blast */
-
-for(let i=0;i<25;i++){
-
-
-let p=document.createElement("div");
-
-p.className="paper";
-
-p.innerHTML="🎉";
-
-
-p.style.left=Math.random()*100+"%";
-
-p.style.animationDelay=Math.random()+"s";
-
-
-document.body.appendChild(p);
-
-
-}
-
-
-
-setTimeout(()=>{
-
-
-document.getElementById("cake").style.display="block";
-
-
-},1500);
-
-
-
-setTimeout(()=>{
-
-
-document.getElementById("final").style.display="block";
-
-
-},3000);
-
-
-
-}
-
-
-</script>
-
-
-</body>
-</html>
+  
+function startLetter(){  
+  
+let song=document.getElementById("song");  
+  
+song.play();  
+  
+  
+document.getElementById("cover").style.display="none";  
+  
+document.getElementById("letter").style.display="block";  
+  
+}  
+  
+  
+  
+function openGift(){  
+  
+document.querySelector(".gift").style.display="none";  
+  
+  
+let count=document.getElementById("count");  
+  
+count.style.display="block";  
+  
+  
+let num=3;  
+  
+  
+let timer=setInterval(()=>{  
+  
+  
+count.innerHTML=num;  
+  
+num--;  
+  
+  
+if(num<0){  
+  
+clearInterval(timer);  
+  
+count.style.display="none";  
+  
+party();  
+  
+}  
+  
+},1000);  
+  
+  
+}  
+  
+  
+  
+function party(){  
+  
+  
+/* colour paper blast */  
+  
+for(let i=0;i<25;i++){  
+  
+  
+let p=document.createElement("div");  
+  
+p.className="paper";  
+  
+p.innerHTML="🎉";  
+  
+  
+p.style.left=Math.random()*100+"%";  
+  
+p.style.animationDelay=Math.random()+"s";  
+  
+  
+document.body.appendChild(p);  
+  
+  
+}  
+  
+  
+  
+setTimeout(()=>{  
+  
+  
+document.getElementById("cake").style.display="block";  
+  
+  
+},1500);  
+  
+  
+  
+setTimeout(()=>{  
+  
+  
+document.getElementById("final").style.display="block";  
+  
+  
+},3000);  
+  
+  
+  
+}  
+  
+  
+</script>  </body>  
+</html>  
