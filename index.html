@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Papa 💙</title>
+<title>For My Papa 💙👩‍❤️‍👨</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -14,24 +15,26 @@ box-sizing:border-box;
 }
 
 body{
-height:100vh;
-background:linear-gradient(135deg,#eaf6ff,#b8dcff);
+min-height:100vh;
+background:linear-gradient(135deg,#ffd6e7,#fff0f6);
 display:flex;
 justify-content:center;
 align-items:center;
 font-family:"Georgia",serif;
 overflow:auto;
+text-align:center;
 }
 
-/* floating hearts */
-.heart{
+
+/* Floating emojis */
+
+.float{
 position:absolute;
-color:#0077ff;
 font-size:25px;
-animation:float 6s infinite;
+animation:move 7s infinite;
 }
 
-@keyframes float{
+@keyframes move{
 0%{
 transform:translateY(100vh);
 opacity:0;
@@ -46,34 +49,37 @@ opacity:0;
 }
 
 
+/* Main box */
+
 .container{
 width:90%;
 max-width:420px;
-text-align:center;
 }
 
 
 /* Envelope */
+
 .envelope{
 background:#fff;
 padding:35px 20px;
-border-radius:20px;
-box-shadow:0 0 25px rgba(0,0,0,.2);
+border-radius:25px;
+box-shadow:0 0 25px #ffb6d2;
 }
 
 .envelope h1{
-color:#0066cc;
+color:#d63384;
 font-size:30px;
 }
 
 .envelope p{
-margin:15px;
-font-size:18px;
+margin:20px;
 color:#555;
+font-size:18px;
 }
 
+
 button{
-background:#0066cc;
+background:#ff8fba;
 color:white;
 border:none;
 padding:12px 25px;
@@ -84,62 +90,100 @@ cursor:pointer;
 
 
 /* Letter */
+
 .letter{
 display:none;
-background:#fffdf5;
+background:#fffafc;
 padding:25px;
-border-radius:15px;
-box-shadow:0 0 25px rgba(0,0,0,.2);
-color:#333;
-line-height:1.6;
+border-radius:20px;
+box-shadow:0 0 25px #ffb6d2;
+color:#555;
+line-height:1.7;
 }
+
 
 .letter h2{
-color:#0066cc;
-margin-bottom:15px;
+color:#d63384;
 }
 
+
 .photo{
-width:150px;
 height:150px;
-border-radius:10px;
+width:150px;
+margin:20px auto;
+background:#ffe4ef;
 border:8px solid white;
-box-shadow:0 0 15px #aaa;
-margin:15px auto;
+border-radius:15px;
 display:flex;
 align-items:center;
 justify-content:center;
-background:#dceeff;
-color:#0066cc;
+color:#d63384;
 }
+
+
+/* Gift */
 
 .gift{
 font-size:80px;
 cursor:pointer;
-margin:15px;
+margin:20px;
 }
 
-#surprise{
+
+/* Cake */
+
+#cake{
 display:none;
-font-size:22px;
-color:#0066cc;
+font-size:70px;
+}
+
+
+/* Candle */
+
+#candle{
+display:none;
+font-size:45px;
+animation:burn .5s infinite alternate;
+}
+
+@keyframes burn{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.1);
+}
+}
+
+
+#wish{
+display:none;
+color:#d63384;
+font-size:20px;
 font-weight:bold;
 }
 
-.music{
+
+#final{
+display:none;
+color:#d63384;
+font-size:24px;
+font-weight:bold;
 margin-top:15px;
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
 
-<div class="heart">💙</div>
-<div class="heart" style="left:20%;animation-delay:2s">✨</div>
-<div class="heart" style="left:70%;animation-delay:4s">💙</div>
+<div class="float" style="left:10%">💙</div>
+<div class="float" style="left:30%;animation-delay:2s">😽</div>
+<div class="float" style="left:55%;animation-delay:4s">🫀</div>
+<div class="float" style="left:80%;animation-delay:1s">✨</div>
+<div class="float" style="left:65%;animation-delay:3s">🎂</div>
 
 
 <div class="container">
@@ -147,27 +191,31 @@ margin-top:15px;
 
 <div class="envelope" id="open">
 
-<h1>💌 For My Papa 💙</h1>
+<h1>
+💌 For My Papa 💙👩‍❤️‍👨
+</h1>
 
 <p>
-A little letter filled with love, memories and wishes ✨
+A little letter filled with love, memories and wishes 🌸✨
 </p>
 
+
 <button onclick="openLetter()">
-Open My Letter 💙
+Open My Letter 💗
 </button>
 
 </div>
 
 
-
 <div class="letter" id="letter">
 
-<h2>Happy Birthday Papa 💙🎂</h2>
+<h2>
+Happy Birthday Papa 💙🎂
+</h2>
 
 
 <div class="photo">
-Add Papa Photo 🖼️
+Papa Photo 🖼️
 </div>
 
 
@@ -175,45 +223,48 @@ Add Papa Photo 🖼️
 
 Dear Papa 💙,<br><br>
 
-You are the most precious blessing in my life. 
-Your love, care and support make my world more beautiful. 🫂✨<br><br>
+You are my happiness, my safe place and my biggest blessing. 🫂✨<br><br>
 
-Thank you for every smile, every sacrifice and every moment you gave me. 
-You are my strength and my forever hero. 💙👑<br><br>
+Thank you for your love, care and all the beautiful memories you gave me. 💗<br><br>
 
-On your special day, I wish you endless happiness, good health, success and lots of beautiful memories. 🎉<br><br>
+You are my forever favourite person. 🌎💙<br><br>
 
-I love you forever Papa... 💙🦋
+I wish you endless happiness, success and lots of smiles. 🎂✨
 
 </p>
 
 
-<div class="gift" onclick="giftOpen()">
+<div class="gift" onclick="openGift()">
 🎁
 </div>
 
 
-<div id="surprise">
+<p>
+Tap the gift for surprise 💗
+  <div id="cake">
+🎂
+</div>
 
-💙 Surprise For You Papa 💙<br>
-You are my favourite person forever 🫂✨
+<div id="candle">
+🕯️
+</div>
 
+<div id="wish">
+Make a wish Papa ✨💗
+</div>
+
+<div id="final">
+💌🌎😽<br>
+Happy Birthday My Hubby 💗<br><br>
+
+You are my favourite person forever 🫂💙<br>
+Love you always ✨
 </div>
 
 
-<div class="music">
-
-<button onclick="playMusic()">
-🎵 Play Song
-</button>
-
-</div>
-
-
 </div>
 
 </div>
-
 
 
 <script>
@@ -227,21 +278,46 @@ document.getElementById("letter").style.display="block";
 }
 
 
-function giftOpen(){
 
-document.getElementById("surprise").style.display="block";
+function openGift(){
+
+document.querySelector(".gift").style.display="none";
+
+document.getElementById("cake").style.display="block";
+
+
+setTimeout(function(){
+
+document.getElementById("candle").style.display="block";
+
+},1000);
+
+
+setTimeout(function(){
+
+document.getElementById("wish").style.display="block";
+
+},1500);
+
+
+setTimeout(function(){
+
+document.getElementById("candle").style.display="none";
+
+document.getElementById("wish").style.display="none";
+
+document.getElementById("final").style.display="block";
+
+},4000);
+
 
 }
 
 
-function playMusic(){
-
-alert("Add your favourite song here 🎵💙");
-
-}
 
 </script>
 
 
 </body>
 </html>
+</p>
