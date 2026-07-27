@@ -266,3 +266,122 @@ A little birthday surprise is waiting for you... 🥹✨
 </div>
 
 </div>
+<div class="page" id="cake">
+
+<div class="card">
+
+<h1>Happy Birthday My Baby 🎂</h1>
+
+<p>
+
+MY BABY TURNS INTO<br>
+
+<b>22 YEARS OLD</b> 🧿🥹
+
+</p>
+
+<div class="cake">
+
+🎂
+
+</div>
+
+<p style="margin-top:15px">
+
+Make a wish...✨
+
+</p>
+
+<button onclick="showGift()">
+
+🕯️ Blow Candles
+
+</button>
+
+</div>
+
+</div>
+
+<style>
+
+.cake{
+
+font-size:110px;
+
+margin-top:20px;
+
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+</style>
+<div class="page" id="gift">
+
+<div class="card">
+
+<h1>Your Surprise 🎁</h1>
+
+<div id="giftBox" style="font-size:110px;cursor:pointer;margin:20px 0;" onclick="openGift()">
+🎁
+</div>
+
+<p>Tap the gift box... 💙</p>
+
+</div>
+
+</div>
+
+<div class="page" id="final">
+
+<div class="card">
+
+<h1>I Am Your Birthday Gift 🎁💙</h1>
+
+<p>
+
+No matter where life takes us...<br><br>
+
+I'll always be with you. 🥹❤️
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function startSurprise(){
+
+const music=document.getElementById("music");
+
+music.play().catch(()=>{});
+
+document.getElementById("home").classList.remove("active");
+document.getElementById("cake").classList.add("active");
+
+}
+
+function showGift(){
+
+document.getElementById("cake").classList.remove("active");
+document.getElementById("gift").classList.add("active");
+
+}
+  
