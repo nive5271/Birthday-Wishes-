@@ -129,3 +129,118 @@ Tap the button below. 🥹✨
 </button>
 
 </div>
+  <audio id="bgMusic" preload="auto">
+  <source src="YOUR_SONG_LINK.mp3" type="audio/mpeg">
+</audio>
+
+<button id="playBtn">🎵 Tap to Play</button>
+
+<script>
+const audio = document.getElementById("bgMusic");
+const btn = document.getElementById("playBtn");
+
+btn.addEventListener("click", async () => {
+  try {
+    audio.volume = 1;
+    await audio.play();
+    btn.style.display = "none"; // button மறையும்
+  } catch (err) {
+    alert("Song play ஆகவில்லை. Song link சரியா இருக்கிறதா என்று பாருங்கள்.");
+    console.log(err);
+  }
+});
+    </script>
+<script>
+const playBtn = document.getElementById("playBtn");
+const firstPage = document.getElementById("firstPage");
+const countdownPage = document.getElementById("countdownPage");
+const music = document.getElementById("bgMusic");
+
+playBtn.addEventListener("click", async () => {
+  try {
+    await music.play();
+
+    firstPage.style.opacity = "0";
+
+    setTimeout(() => {
+      firstPage.style.display = "none";
+      countdownPage.style.display = "flex";
+    }, 800);
+
+  } catch (e) {
+    console.log(e);
+  }
+});
+</script>
+<div id="countdown">
+  <h2>Countdown to Your Birthday 🎂</h2>
+
+  <div class="time-box">
+    <span id="days">00</span>
+    <p>Days</p>
+  </div>
+
+  <div class="time-box">
+    <span id="hours">00</span>
+    <p>Hours</p>
+  </div>
+
+  <div class="time-box">
+    <span id="minutes">00</span>
+    <p>Minutes</p>
+  </div>
+
+  <div class="time-box">
+    <span id="seconds">00</span>
+    <p>Seconds</p>
+  </div>
+</div>
+
+<script>
+const targetDate = new Date("July 28, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}, 1000);
+</script>
+<div id="giftPage" style="display:none;">
+  <h2>🎁 A Special Gift For You 💙</h2>
+
+  <div id="giftBox">
+    🎁
+  </div>
+
+  <p>Tap the Gift to Open ✨</p>
+  </div>
+  <div id="birthdayPage" style="display:none;">
+    <h1 class="birthdayText">
+        🧿🥹 My Baby Turns Into 22 Years Old 🥹🧿
+    </h1>
+
+    <div class="cake">🎂</div>
+
+    <p class="wish">
+        Happy Birthday My Papa 💙👩‍❤️‍👨<br>
+        I Love You So Much Forever! 🥹❤️
+    </p>
+</div>
+
+<script>
+const giftBox = document.getElementById("giftBox");
+
+giftBox.addEventListener("click", () => {
+    document.getElementById("giftPage").style.display = "none";
+    document.getElementById("birthdayPage").style.display = "flex";
+});
+</script>
