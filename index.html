@@ -3,104 +3,204 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Papa 💙👼🏻</title>
+<title>For My Papa 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#6dd5fa,#2980b9);
-height:100vh;
+background:linear-gradient(135deg,#ffdbe9,#fff8fb);
 overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
+height:100vh;
+}
+
+.page{
+display:none;
+width:100%;
+height:100vh;
+justify-content:center;
+align-items:center;
 flex-direction:column;
 text-align:center;
+padding:20px;
+}
+
+.active{
+display:flex;
 }
 
 h1{
-color:white;
-font-size:42px;
-text-shadow:2px 2px 10px black;
-animation:zoom 2s infinite alternate;
+color:#1f6dff;
+font-size:35px;
+margin-bottom:20px;
 }
 
 p{
-color:white;
-font-size:22px;
-margin-top:15px;
+font-size:18px;
+color:#555;
+max-width:330px;
+line-height:1.7;
 }
 
-#gift{
-font-size:110px;
-cursor:pointer;
+button{
 margin-top:30px;
-transition:.5s;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:#1f6dff;
+color:white;
+font-size:18px;
+cursor:pointer;
 }
 
-#gift:hover{
-transform:scale(1.2) rotate(10deg);
+.heart{
+position:absolute;
+bottom:-30px;
+left:12%;
+font-size:38px;
+animation:floatHeart 8s linear infinite;
 }
 
-#message{
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+audio{
 display:none;
-background:white;
-padding:20px;
-width:90%;
-max-width:360px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.3);
-color:#0066cc;
-margin-top:20px;
 }
 
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.08);}
-}
 </style>
 </head>
 
 <body>
 
-<h1>🎉 Happy Birthday Papa 💙👼🏻 🎉</h1>
+<audio id="song" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<p>Tap the Gift 🎁</p>
+<div class="heart">💙</div>
 
-<div id="gift">🎁</div>
-<div id="message">
-<h2>💖 A Special Surprise For My Papa 💙👼🏻</h2>
+<div class="page active" id="home">
+
+<h1>For My Papa 💙👩‍❤️‍👨</h1>
 
 <p>
-Happy Birthday Papa 💙👼🏻 ❤️<br><br>
-
-You are my happiness, my peace, and my biggest blessing. 🥹💙<br><br>
-
-Every moment with you is the most beautiful memory of my life. Thank you for always being there for me. ❤️✨<br><br>
-
-May this birthday bring you endless happiness, success, good health, and everything you dream of. 🎂🎉<br><br>
-
-I Love You Forever Papa... 💙👼🏻🫂
+A little surprise is waiting for you...🥹✨
 </p>
 
-<button onclick="openGift()"
-style="padding:12px 25px;border:none;border-radius:10px;background:#2196F3;color:white;font-size:18px;cursor:pointer;">
-Open My Surprise 💝
+<button onclick="startSurprise()">
+🎵 Tap To Play
+</button>
+
+</div>
+<div class="page" id="birthday">
+
+<h1>Happy Birthday My Baby 🎂💙</h1>
+
+<p>
+MY BABY TURNS INTO 22 YEARS OLD 🧿🥹
+</p>
+
+<div style="font-size:100px;margin:20px 0;">
+🎂
+</div>
+
+<button onclick="showGift()">
+Blow Candles 🕯️
 </button>
 
 </div>
 
+
+<div class="page" id="gift">
+
+<h1>A Surprise For You 🎁</h1>
+
+<div id="giftBox"
+onclick="openGift()"
+style="font-size:110px;cursor:pointer;">
+🎁
+</div>
+
+<p>
+Tap the Gift Box 💙
+</p>
+
+</div>
+
+
+<div class="page" id="final">
+
+<h1>Happy Birthday My Love 💙</h1>
+
+<p>
+
+May your smile stay forever... 🥹💙<br><br>
+
+I Love You So Much ❤️
+
+</p>
+
+</div>
+
+
 <script>
-function openGift(){
-document.getElementById("gift").style.display="none";
-document.getElementById("message").style.display="block";
+
+function startSurprise(){
+
+document.getElementById("song").play();
+
+document.getElementById("home").classList.remove("active");
+document.getElementById("birthday").classList.add("active");
+
 }
+
+function showGift(){
+
+document.getElementById("birthday").classList.remove("active");
+document.getElementById("gift").classList.add("active");
+
+}
+
+function openGift(){
+
+document.getElementById("giftBox").innerHTML="💝";
+
+setTimeout(function(){
+
+document.getElementById("gift").classList.remove("active");
+document.getElementById("final").classList.add("active");
+
+},1500);
+
+}
+
 </script>
+
 </body>
 </html>
