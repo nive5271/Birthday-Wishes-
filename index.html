@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ForMy Lovee 💌🫵🏻</title>
 
-h1{
-font-family:'Pacifico',cursive;
-color:#1f6dff;
-font-size:38px;
-margin-bottom:20px;
-font-weight:normal;
-}
+<title>For My Papa 💙</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,203 +19,250 @@ font-weight:normal;
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#ffdbe9,#fff8fb);
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(135deg,#ffd9ec 0%,#ffeef7 50%,#fff8fc 100%);
+
+min-height:100vh;
+
 overflow-x:hidden;
-overflow-y:auto;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+
+color:#555;
+
 }
 
 .page{
+
 display:none;
+
+min-height:100vh;
+
 width:100%;
-height:100vh;
+
+padding:30px;
+
 justify-content:center;
+
 align-items:center;
+
 flex-direction:column;
+
 text-align:center;
-padding:20px;
+
+position:relative;
+
 }
 
-.active{
+.page.active{
+
 display:flex;
+
+animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
 }
 
 h1{
-color:#1f6dff;
-font-size:35px;
+
+font-family:'Pacifico',cursive;
+
+font-size:42px;
+
+color:#ff4f93;
+
+font-weight:normal;
+
 margin-bottom:20px;
+
+line-height:1.4;
+
+text-shadow:
+0 4px 10px rgba(255,79,147,.18);
+
 }
 
 p{
+
 font-size:18px;
-color:#555;
-max-width:330px;
-line-height:1.7;
+
+line-height:1.8;
+
+max-width:380px;
+
+color:#666;
+
 }
 
 button{
-margin-top:30px;
-padding:15px 35px;
+
+margin-top:35px;
+
+padding:16px 40px;
+
 border:none;
-border-radius:40px;
-background:#1f6dff;
-color:white;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,#ff6fa8,#ff8fc1);
+
+color:#fff;
+
 font-size:18px;
+
+font-weight:600;
+
 cursor:pointer;
+
+box-shadow:
+0 12px 25px rgba(255,111,168,.35);
+
+transition:.35s;
+
 }
 
-.heart{
-position:absolute;
-bottom:-30px;
-left:12%;
-font-size:38px;
-animation:floatHeart 8s linear infinite;
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+  .heart{
+
+position:fixed;
+
+left:8%;
+
+bottom:-60px;
+
+font-size:42px;
+
+animation:floatHeart 11s linear infinite;
+
+z-index:5;
+
 }
 
 @keyframes floatHeart{
 
 0%{
-transform:translateY(0);
+
+transform:translateY(0) rotate(0deg);
+
 opacity:0;
+
 }
 
 20%{
+
 opacity:1;
+
+}
+
+80%{
+
+opacity:1;
+
 }
 
 100%{
-transform:translateY(-120vh);
+
+transform:translateY(-120vh) rotate(25deg);
+
 opacity:0;
+
 }
+
+}
+
+.card{
+
+background:#ffffffcc;
+
+backdrop-filter:blur(12px);
+
+border-radius:30px;
+
+padding:35px 25px;
+
+width:100%;
+
+max-width:430px;
+
+box-shadow:
+
+0 15px 40px rgba(255,170,205,.35);
 
 }
 
 audio{
+
 display:none;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<audio id="song" loop>
+<audio id="music" loop>
+
 <source src="music.mp3" type="audio/mpeg">
+
 </audio>
 
 <div class="heart">💙</div>
 
 <div class="page active" id="home">
 
-<h1>For My Lovee 💌🫵🏻</h1>
+<div class="card">
+
+<h1>For My Papa 💙</h1>
 
 <p>
-A little surprise is waiting for you...🥹✨
+
+A little birthday surprise is waiting for you... 🥹✨
+
 </p>
 
 <button onclick="startSurprise()">
+
 🎵 Tap To Play
-</button>
 
-</div>
-<div class="page" id="birthday">
-
-<h1>Happy Birthday Papaa 👶🏻💙</h1>
-
-<p>
-MY BAE TURNS INTO 22 YEARS OLD 🧿🥹
-</p>
-
-<div style="font-size:100px;margin:20px 0;">
-🎂
-</div>
-
-<button onclick="showGift()">
-Blow Candles 🕯️
 </button>
 
 </div>
 
-
-<div class="page" id="gift">
-
-<h1>A Surprise For You 🎁</h1>
-
-<div id="giftBox"
-onclick="openGift()"
-style="font-size:110px;cursor:pointer;">
-🎁
 </div>
-
-<p>
-Tap the Gift Box 💙
-</p>
-
-</div>
-
-
-<div class="page" id="final">
-
-<h1>Happy Birthday My Love 💙🤗</h1>
-
-<p>
-
-May your smile stay forever... 🥹💙<brl><br> Once Again' Happy Birthday to the most amazing boyfriend 💌✨
-You make my world incredibly bright, and every moment spent by your side feels like a beautiful dream come true. 🌎💫
-
-Your love, kindness, and warm smile are the greatest gifts in my life. 💗🫂
-I pray this new year brings you endless success, happiness, good health, and everything your heart wishes for. ✨
-
-No matter what happens, I promise to stand by your side through everything, always. 💙🤍
-
-I am so grateful to the universe for bringing you into my life. You are my favourite person, my happiness, and my forever. 💙🌎
-
-I Love You So Much ❤️
-
-</p>
-
-</div>
-
-
-<script>
-
-function startSurprise(){
-
-document.getElementById("song").play();
-
-document.getElementById("home").classList.remove("active");
-document.getElementById("birthday").classList.add("active");
-
-}
-
-function showGift(){
-
-document.getElementById("birthday").classList.remove("active");
-document.getElementById("gift").classList.add("active");
-
-}
-
-function openGift(){
-document.getElementById("giftBox").innerHTML="<div style='font-size:28px;font-weight:bold;color:#1f6dff;'>I am your gift. 🎁🤭😽</div>";
-
-setTimeout(function(){
-
-document.getElementById("gift").classList.remove("active");
-document.getElementById("final").classList.add("active");
-
-},1500);
-
-
-}
-
-</script>
-
-</body>
-</html>
